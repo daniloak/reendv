@@ -33,3 +33,13 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_f44193540f224848b86227842c2201bd }}
         package: ${{env.DOTNET_ROOT}}/myapp 
+        
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      with:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: GitHub
+        SLACK_ICON: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+        SLACK_COLOR: '#27242C'
+        SLACK_MESSAGE: 'Deployed with success :rocket:'
+        
