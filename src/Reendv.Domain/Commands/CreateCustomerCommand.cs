@@ -5,18 +5,15 @@ using System;
 
 namespace Reendv.Domain.Commands
 {
-    public class CreateAppointmentCommand : Notifiable, ICommand
+    public class CreateCustomerCommand : Notifiable, ICommand
     {
-        public CreateAppointmentCommand() { }
-
-        public CreateAppointmentCommand(Guid customer, Guid service)
+        public CreateCustomerCommand(){}
+        public CreateCustomerCommand(string name)
         {
-            Customer = customer;
-            Service = service;
+            Name = name;
         }
 
-        public Guid Customer { get; set; }
-        public Guid Service { get; set; }
+        public string Name { get; set; }
 
         public void Validate()
         {

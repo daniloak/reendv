@@ -33,8 +33,13 @@ namespace Reendv.Api
 
             services.AddAutoMapper(typeof(Startup));
 
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IServiceRepository, ServiceRepository>();
             services.AddTransient<IAppointmentRepository, AppointmentRepository>();
-            services.AddTransient<AppointmentHandler, AppointmentHandler>();
+
+            services.AddTransient<CustomerHandler>();
+            services.AddTransient<ServiceHandler>();
+            services.AddTransient<AppointmentHandler>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

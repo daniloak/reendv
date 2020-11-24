@@ -12,9 +12,9 @@ namespace Reendv.Api.Configuration
     {
         public AutoMapperConfig()
         {
-            CreateMap<Appointment, AppointmentDto>().ReverseMap();
-            CreateMap<Service, ServiceDto>().ReverseMap();
-            CreateMap<Customer, CustomerDto>().ReverseMap();
+            CreateMap<Appointment, AppointmentViewModel>().ReverseMap();
+            CreateMap<Service, ServiceViewModel>().ReverseMap();
+            CreateMap<Customer, CustomerViewModel>().ReverseMap();
         }
     }
 }

@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Reendv.Api.ViewModel
 {
-    public class AppointmentDto
+    public class AppointmentViewModel
     {
         public Guid Id { get; set; }
-        public CustomerDto Customer { get; set; }
-        public ServiceDto Service { get; set; }
+        public CustomerViewModel Customer { get; set; }
+        public ServiceViewModel Service { get; set; }
     }
 }

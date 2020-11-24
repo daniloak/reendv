@@ -4,7 +4,6 @@ using Reendv.Domain.Commands.Contracts;
 using Reendv.Domain.Entities;
 using Reendv.Domain.Handlers.Contracts;
 using Reendv.Domain.Repositories;
-using System;
 
 namespace Reendv.Domain.Handlers
 {
@@ -23,13 +22,13 @@ namespace Reendv.Domain.Handlers
         {
             command.Validate();
             if (command.Invalid)
-                return new GenericCommandResult(false, "erro", command.Notifications);
+                return new GenericCommandResult(false, "Error creating appointment", command.Notifications);
 
             var appointment = new Appointment(command.Customer, command.Service);
 
             _repository.Create(appointment);
 
-            return new GenericCommandResult(true, "Sucesso", appointment);
+            return new GenericCommandResult(true, "Appointment created", appointment);
         }
     }
 }

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Reendv.Api.ViewModel;
 using Reendv.Domain.Commands;
-using Reendv.Domain.Entities;
 using Reendv.Domain.Handlers;
 using Reendv.Domain.Repositories;
+using System.Collections.Generic;
 
 namespace Reendv.Api.Controllers
 {
@@ -24,19 +19,19 @@ namespace Reendv.Api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<AppointmentDto> GetAll(
+        public IEnumerable<AppointmentViewModel> GetAll(
             [FromServices] IAppointmentRepository repository
         )
         {
-            var appointmentsDto = _mapper.Map<IEnumerable<AppointmentDto>>(repository.GetAll());
+            var appointmentViewModel = _mapper.Map<IEnumerable<AppointmentViewModel>>(repository.GetAll());
 
-            return appointmentsDto;
+            return appointmentViewModel;
         }
 
         [HttpPost]
         public GenericCommandResult Create(
-            [FromBody] CreateAppointmentCommand command, 
-            [FromServices]AppointmentHandler handler
+            [FromBody] CreateAppointmentCommand command,
+            [FromServices] AppointmentHandler handler
         )
         {
             return (GenericCommandResult)handler.Handle(command);
