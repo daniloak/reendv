@@ -40,6 +40,7 @@ jobs:
     
     steps:
     - uses: rtCamp/action-slack-notify@v2      
+      
     - name: Slack Notification
       env:
         SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
