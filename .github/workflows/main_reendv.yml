@@ -49,4 +49,6 @@ jobs:
         SLACK_ICON: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
         SLACK_COLOR: '#24292f'
         SLACK_MESSAGE: 'Deployed with success :rocket:'
+        SLACK_FOOTER: 'git actions'
+        MSG_MINIMAL: true
         
